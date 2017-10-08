@@ -27,21 +27,50 @@ http.cors.allow-origin: *.*
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_202719.png)
 
 ### ElasticSearch 分布式安装配置
+#### Master配置
+``` yml
 
+```
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_203148.png)
 
+#### 浏览器打开查看 Master配置信息
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_203249.png)
 
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_203311.png)
 
+#### Salve01配置
+``` yml
+cluster.name: JhonRain
+node.name: slave1
+
+network.host: 127.0.0.1
+http.port: 8200
+
+# 配置找到Master
+discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
+```
+![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_204405.png)
+#### Salve02配置
+``` yml
+cluster.name: JhonRain
+node.name: slave2
+
+network.host: 127.0.0.1
+http.port: 7200
+
+# 配置找到Master
+discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
+```
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_204347.png)
 
-![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_204405.png)
-
+#### 分别启动Master和Slave，如下
 ![Elasticsearch Head插件安装](./src/main/resources/static/Master-with-slave.png)
 
+##### 使用浏览器查看是否存在
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_204944.png)
 
+
+#### 索引的创建 和 查看编辑信息
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_205506.png)
 
 ![Elasticsearch Head插件安装](./src/main/resources/static/2017-10-03_205542.png)
