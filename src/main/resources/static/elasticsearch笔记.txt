@@ -1,0 +1,32 @@
+elastic.com
+
+https://github.com/mobz/elasticsearch-head  head插件的安装
+
+查询当前服务的进程
+ps -ef|grep 'pwd'
+
+{
+	"settings":{
+		"number_of_shards" : 3,
+		"number_of_replicas" : 5
+	},
+	"mappings":{
+		"novel":{
+			"properties":{
+				"word_count":{
+					"type":"integer"
+				},
+				"author":{
+					"type":"keyword"
+				},
+				"title":{
+					"type":"text"
+				},
+				"publish_date":{
+					"type":"date",
+					"format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+				}
+			}
+		}
+	}
+}
